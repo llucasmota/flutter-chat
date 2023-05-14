@@ -30,29 +30,50 @@ class _AuthFormState extends State<AuthForm> {
               children: <Widget>[
                 if (_authFormData.isSignup)
                   TextFormField(
-                    key: ValueKey('name'),
+                    key: const ValueKey('name'),
                     initialValue: _authFormData.name,
                     onChanged: (name) => _authFormData.name = name,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       label: Text('Nome'),
                     ),
+                    validator: (nameValue) {
+                      final name = nameValue ?? '';
+                      if (name.trim().length < 5) {
+                        return 'Nome de ter no mínimo 5 caracteres';
+                      }
+                      return null;
+                    },
                   ),
                 TextFormField(
-                  key: ValueKey('email'),
+                  key: const ValueKey('email'),
                   initialValue: _authFormData.email,
                   onChanged: (email) => _authFormData.email = email,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     label: Text('E-mail'),
                   ),
+                  validator: (emailValue) {
+                    final email = emailValue ?? '';
+                    if (!email.contains('@')) {
+                      return 'Email informado não é válido';
+                    }
+                    return null;
+                  },
                 ),
                 TextFormField(
-                  key: ValueKey('password'),
+                  key: const ValueKey('password'),
                   initialValue: _authFormData.password,
                   onChanged: (password) => _authFormData.password = password,
                   obscureText: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     label: Text('Senha'),
                   ),
+                  validator: (passwordValue) {
+                    final password = passwordValue ?? '';
+                    if (password.trim().length < 6) {
+                      return 'Senha inválida';
+                    }
+                    return null;
+                  },
                 ),
                 SizedBox(
                   height: 16,
