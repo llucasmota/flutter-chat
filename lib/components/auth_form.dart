@@ -4,7 +4,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
 class AuthForm extends StatefulWidget {
-  const AuthForm({super.key});
+  final void Function(AuthFormData) onSubmit;
+  const AuthForm({Key? key, required this.onSubmit}) : super(key: key);
 
   @override
   State<AuthForm> createState() => _AuthFormState();
@@ -15,7 +16,11 @@ class _AuthFormState extends State<AuthForm> {
   final _authFormData = AuthFormData();
 
   void _submit() {
-    _formKey.currentState?.validate();
+    final isValid = _formKey.currentState?.validate() ?? false;
+    if (!isValid) {
+      return;
+    }
+    widget.onSubmit(_authFormData);
   }
 
   @override
