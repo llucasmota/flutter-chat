@@ -17,7 +17,6 @@ class AuthMockService implements AuthService {
   });
 
   @override
-  // TODO: implement currentUser
   ChatUser? get currentUser => _currentUser;
 
   @override
