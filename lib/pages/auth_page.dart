@@ -29,14 +29,13 @@ class _AuthPageState extends State<AuthPage> {
     } catch (error) {
       // Tratar erro
     } finally {
-      Timer(Duration(seconds: 3), () {
+      Timer(const Duration(seconds: 3), () {
         setState(() {
           isLoading = false;
         });
       });
     }
 
-    ;
   }
 
   @override

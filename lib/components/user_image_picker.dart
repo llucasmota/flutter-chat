@@ -39,7 +39,7 @@ class _UserImagePickerState extends State<UserImagePicker> {
           backgroundColor: Colors.grey,
           backgroundImage: _image != null ? FileImage(_image!) : null,
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         TextButton(
@@ -51,10 +51,10 @@ class _UserImagePickerState extends State<UserImagePicker> {
                 Icons.image,
                 color: Theme.of(context).colorScheme.primary,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
-              Text('Adicionar Imagem')
+              const Text('Adicionar Imagem')
             ],
           ),
         )
