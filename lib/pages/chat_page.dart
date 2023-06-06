@@ -24,7 +24,7 @@ class ChatPage extends StatelessWidget {
                   child: Container(
                     child: const Row(
                       children: [
-                        Icon(Icons.exit_to_app),
+                        Icon(Icons.exit_to_app, color: Colors.blueGrey),
                         SizedBox(
                           width: 10,
                         ),
