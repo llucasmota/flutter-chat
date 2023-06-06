@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
           primarySwatch: Colors.blue,
-          colorScheme: ColorScheme.fromSwatch().copyWith(primary: Colors.blue),
+          colorScheme: ColorScheme.fromSwatch()
+              .copyWith(primary: Colors.blue, secondary: Colors.white),
           textTheme: const TextTheme(
               headlineSmall: TextStyle(color: Colors.white, fontSize: 18))),
       home: const AuthOrAppPage(),
