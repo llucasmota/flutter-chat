@@ -1,4 +1,4 @@
-import 'package:chat/core/services/auth/auth_mock_service.dart';
+import 'package:chat/core/services/auth/auth_service.dart';
 import 'package:chat/core/services/chat/chat_service.dart';
 import 'package:flutter/material.dart';
 
@@ -15,10 +15,11 @@ class _NewMessagesState extends State<NewMessages> {
   final _messageController = TextEditingController();
 
   Future<void> _sendMessage() async {
-    final user = AuthMockService().currentUser;
+    final user = AuthService().currentUser;
 
     if (user != null) {
-      await ChatService().save(_message, user);
+      final msg = await ChatService().save(_message, user);
+      print('mensagem enviada ${msg?.id}');
       _messageController.clear();
     }
   }

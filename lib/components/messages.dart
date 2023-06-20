@@ -1,7 +1,7 @@
 import 'package:chat/components/messages_bubble.dart';
 import 'package:chat/core/models/chat_messages.dart';
 import 'package:chat/core/services/auth/auth_service.dart';
-import 'package:chat/core/services/chat/chat_mock_service.dart';
+import 'package:chat/core/services/chat/chat_service.dart';
 import 'package:flutter/material.dart';
 
 class Messages extends StatelessWidget {
@@ -12,7 +12,7 @@ class Messages extends StatelessWidget {
     final currentUser = AuthService().currentUser;
 
     return StreamBuilder<List<ChatMessage>>(
-      stream: ChatMockService().messageStream(),
+      stream: ChatService().messageStream(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           const Center(
